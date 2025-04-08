@@ -4,27 +4,35 @@
         ユーザ管理テーブル {
         int user_id PK
         string username
-        string email
-        string password_hash
+        string user_question_id
+        string user_answer
         datetime created_at
         datetime updated_at
+        }
+
+        %% 秘密の質問一覧テーブル
+        秘密の質問一覧テーブル　{
+            int question_id PK
+            string content
         }
 
         %% タスク管理テーブル
         タスク管理テーブル {
         int task_id PK
         int user_id FK
-        string title
-        string description
-        datetime due_date
-        int status_id FK
+        int task_status_id FK
+        string task_title
+        string task_description
+        datetime task_start_time
+        datetime task_end_time
+        datetime created_at
+        datetime updated_at
         }
 
         %% タスクステータステーブル
         タスクステータステーブル {
         int status_id PK
         string status_name
-        string description
         }
 
         %% 子タスクテーブル
@@ -32,8 +40,8 @@
         int child_task_id PK
         int parent_task_id FK
         string title
-        string description
-        datetime due_date
+        datetime created_at
+        datetime updated_at
         }
 
         %% 目標管理テーブル
@@ -41,16 +49,16 @@
         int goal_id PK
         int user_id FK
         string goal_title
-        string description
-        datetime start_date
-        datetime end_date
+        string goal_description
+        datetime goal_start_date
+        datetime goal_end_date
         datetime created_at
         datetime updated_at
         }
 
         %% 達成度管理テーブル
         達成度管理テーブル {
-        int achievement_id PK
+        int achievement_id PK 
         int goal_id FK
         float achievement_rate
         string comment
@@ -61,19 +69,21 @@
         一日の勉強目標時間テーブル {
         int record_id PK
         int user_id FK
-        date record_date
         int study_minutes
+        time best_record_time
+        time minimum_record_time
+        date record_date
         datetime created_at
         }
 
         %% 参考書テーブル
         参考書テーブル {
         int book_id PK
-        string title
-        string author
-        string publisher
-        int publication_year
-        string isbn
+        string book_title
+        string book_author
+        string book_comment
+        datetime created_at
+        datetime updated_at
         }
 
         %% 一日のタスク実績テーブル
@@ -82,7 +92,7 @@
         int user_id FK
         int task_id FK
         date record_date
-        float progress_percentage
+        time task_study_time
         datetime created_at
         datetime updated_at
         }
