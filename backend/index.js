@@ -21,6 +21,7 @@ db.connect(err => {
 });
 
 app.get('/', (req, res) => {
+    console.log('start getmethod');
     res.send('Hello, Backend is running!');
 });
 
