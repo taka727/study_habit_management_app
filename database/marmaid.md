@@ -4,16 +4,17 @@
         ユーザ管理テーブル {
         int user_id PK
         string username
-        string user_question_id
+        string user_question_id FK
         string user_answer
         datetime created_at
         datetime updated_at
+        bool is_deleted 
         }
 
-        %% 秘密の質問一覧テーブル
-        秘密の質問一覧テーブル　{
-            int question_id PK
-            string content
+        %% 秘密の質問テーブル
+        秘密の質問テーブル {
+        int question_id PK
+        string content
         }
 
         %% タスク管理テーブル
@@ -60,8 +61,9 @@
         達成度管理テーブル {
         int achievement_id PK 
         int goal_id FK
+        time achievement_study_time_sum
         float achievement_rate
-        string comment
+        string achievement_comment
         datetime record_date
         }
 
@@ -79,6 +81,7 @@
         %% 参考書テーブル
         参考書テーブル {
         int book_id PK
+        int user_id FK
         string book_title
         string book_author
         string book_comment
@@ -122,4 +125,10 @@
 
         %% タスク管理と一日のタスク実績：タスク実績は特定のタスクに紐付く
         タスク管理テーブル ||--o{ 一日のタスク実績テーブル : "実績"
+
+        %% ユーザ管理と秘密の質問テーブル：ユーザは複数の質問から一問定義する
+        ユーザ管理テーブル ||--o{ 秘密の質問テーブル : "定義"
+
+        %% ユーザ管理と秘密の質問テーブル：ユーザは読書中の本を管理することができる
+        ユーザ管理テーブル ||--o{ 参考書テーブル : "記録"
 ```
