@@ -1,0 +1,67 @@
+openapi: 3.0.0
+info:
+  title: Task Management API
+  version: 1.0.0
+servers:
+  - url: https://api.example.com/v1
+
+
+paths:
+  /users:
+    $ref: './paths/users.yaml'
+  /tasks:
+    $ref: './paths/tasks.yaml'
+  /tasks/:taskId:
+    $ref: './paths/tasksId.yaml'
+  /tasks/:taskId/subtasks:
+    $ref: './paths/subTask.yaml'
+  /subtasks/:subtaskId:
+    $ref: './paths/subTaskId.yaml'
+  /task-statuses:
+    $ref: './paths/tasksStatuses.yaml'
+  /task-records:
+    $ref: './paths/tasksRecords.yaml'
+  /task-records?date=2025-04-12:
+    $ref: './paths/tasksRecordDate.yaml'
+  /tasks/:taskId/records:
+    $ref: './paths/tasksIdRecords.yaml'
+  /goals:
+    $ref: './paths/goals.yaml'
+  /goals/:goalId:
+    $ref: './paths/goalsId.yaml'
+  /goals/:goalId/achievements:
+    $ref: './paths/goalsIdAchievements.yaml'
+  /study-targets?date=2025-04-12:
+    $ref: './paths/studyTargetsDate.yaml'
+  /study-targets:
+    $ref: './paths/studyTargets.yaml'
+  /books:
+    $ref: './paths/books.yaml'
+  /books/:bookId:
+    $ref: './paths/booksID.yaml'
+  /me :
+    $ref: './paths/me.yaml'
+
+components:
+  schemas:
+      $ref: './components/schemas/Task.yaml'
+
+tags:
+  - name: Tasks
+    description: タスクを操作するAPI
+  - name: Users
+    description: ユーザを操作するAPI  
+  - name: SubTasks
+    description: サブタスクを操作するAPI
+  - name: TaskStatus
+    description: タスクのステータスを取得するAPI
+  - name: TaskRecords
+    description: 実績を操作するAPI
+  - name: Goals
+    description: 目標を操作するAPI  
+  - name: StudyTargets
+    description: 達成記録を操作するAPI    
+  - name: Books
+    description: 参考書情報を操作するAPI
+  - name: Me
+    description: ユーザ情報を操作するAPI

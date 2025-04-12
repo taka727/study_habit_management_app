@@ -1,0 +1,428 @@
+openapi: 3.0.0
+info:
+  title: Task Management API
+  version: 1.0.0
+servers:
+  - url: 'https://api.example.com/v1'
+paths:
+  /users:
+    get:
+      tags:
+        - Users
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - Users
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  /tasks:
+    get:
+      tags:
+        - Tasks
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - Tasks
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  '/tasks/:taskId':
+    get:
+      tags:
+        - Tasks
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - Tasks
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  '/tasks/:taskId/subtasks':
+    get:
+      tags:
+        - SubTasks
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - SubTasks
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  '/subtasks/:subtaskId':
+    get:
+      tags:
+        - SubTasks
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - SubTasks
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  /task-statuses:
+    get:
+      tags:
+        - TaskStatus
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - TaskStatus
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  /task-records:
+    get:
+      tags:
+        - TaskRecords
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - TaskRecords
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  /task-records?date=2025-04-12:
+    get:
+      tags:
+        - TaskRecords
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - TaskRecords
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  '/tasks/:taskId/records':
+    get:
+      tags:
+        - TaskRecords
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - TaskRecords
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  /goals:
+    get:
+      tags:
+        - Goals
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - Goals
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  '/goals/:goalId':
+    get:
+      tags:
+        - Goals
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - Goals
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  '/goals/:goalId/achievements':
+    get:
+      tags:
+        - Goals
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - Goals
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  /study-targets?date=2025-04-12:
+    get:
+      tags:
+        - StudyTargets
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - StudyTargets
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  /study-targets:
+    get:
+      tags:
+        - StudyTargets
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - StudyTargets
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  /books:
+    document/OpenAPI/paths/tasks.yamldocument/OpenAPI/paths/tasks.yamlget:
+      tags:
+        - Books
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - Books
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  '/books/:bookId':
+    document/OpenAPI/paths/tasks.yamldocument/OpenAPI/paths/tasks.yamlget:
+      tags:
+        - Books
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - Books
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+  /me:
+    document/OpenAPI/paths/tasks.yamldocument/OpenAPI/paths/tasks.yamlget:
+      tags:
+        - Me
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    post:
+      tags:
+        - Me
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        status:
+          type: string
+tags:
+  - name: Tasks
+    description: タスクを操作するAPI
+  - name: Users
+    description: ユーザを操作するAPI
+  - name: SubTasks
+    description: サブタスクを操作するAPI
+  - name: TaskStatus
+    description: タスクのステータスを取得するAPI
+  - name: TaskRecords
+    description: 実績を操作するAPI
+  - name: Goals
+    description: 目標を操作するAPI
+  - name: StudyTargets
+    description: 達成記録を操作するAPI
+  - name: Books
+    description: 参考書情報を操作するAPI
+  - name: Me
+    description: ユーザ情報を操作するAPI
