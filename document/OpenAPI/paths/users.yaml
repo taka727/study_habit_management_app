@@ -20,3 +20,25 @@ post:
         application/json:
           schema:
             $ref: '../components/schemas/Task.yaml'
+put:
+  tags : 
+   - Users
+  summary: タスク一覧の取得
+  responses:
+    '200':
+      description: 正常に取得
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Task.yaml'
+delete:
+  tags : 
+   - Users
+  summary: タスク一覧の取得
+  responses:
+    '200':
+      description: 正常に取得
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Task.yaml'

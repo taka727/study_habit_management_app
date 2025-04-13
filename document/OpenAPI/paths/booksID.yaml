@@ -1,4 +1,4 @@
-document/OpenAPI/paths/tasks.yamldocument/OpenAPI/paths/tasks.yamlget:
+put:
   tags : 
    - Books
   summary: タスク一覧の取得
@@ -9,7 +9,7 @@ document/OpenAPI/paths/tasks.yamldocument/OpenAPI/paths/tasks.yamlget:
         application/json:
           schema:
             $ref: '../components/schemas/Task.yaml'
-post:
+delete:
   tags : 
    - Books
   summary: タスク一覧の取得

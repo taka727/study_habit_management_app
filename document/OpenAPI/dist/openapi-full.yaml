@@ -28,6 +28,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas'
+    put:
+      tags:
+        - Users
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    delete:
+      tags:
+        - Users
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
   /tasks:
     get:
       tags:
@@ -63,7 +85,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas'
-    post:
+    put:
+      tags:
+        - Tasks
+      summary: タスク一覧の取得
+      responses:
+        '200':
+          description: 正常に取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas'
+    delete:
       tags:
         - Tasks
       summary: タスク一覧の取得
@@ -98,7 +131,7 @@ paths:
               schema:
                 $ref: '#/components/schemas'
   '/subtasks/:subtaskId':
-    get:
+    put:
       tags:
         - SubTasks
       summary: タスク一覧の取得
@@ -109,7 +142,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas'
-    post:
+    delete:
       tags:
         - SubTasks
       summary: タスク一覧の取得
@@ -132,29 +165,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas'
-    post:
-      tags:
-        - TaskStatus
-      summary: タスク一覧の取得
-      responses:
-        '200':
-          description: 正常に取得
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas'
   /task-records:
-    get:
-      tags:
-        - TaskRecords
-      summary: タスク一覧の取得
-      responses:
-        '200':
-          description: 正常に取得
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas'
     post:
       tags:
         - TaskRecords
@@ -178,30 +189,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas'
-    post:
-      tags:
-        - TaskRecords
-      summary: タスク一覧の取得
-      responses:
-        '200':
-          description: 正常に取得
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas'
   '/tasks/:taskId/records':
     get:
-      tags:
-        - TaskRecords
-      summary: タスク一覧の取得
-      responses:
-        '200':
-          description: 正常に取得
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas'
-    post:
       tags:
         - TaskRecords
       summary: タスク一覧の取得
@@ -236,7 +225,7 @@ paths:
               schema:
                 $ref: '#/components/schemas'
   '/goals/:goalId':
-    get:
+    put:
       tags:
         - Goals
       summary: タスク一覧の取得
@@ -247,7 +236,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas'
-    post:
+    delete:
       tags:
         - Goals
       summary: タスク一覧の取得
@@ -293,29 +282,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas'
-    post:
-      tags:
-        - StudyTargets
-      summary: タスク一覧の取得
-      responses:
-        '200':
-          description: 正常に取得
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas'
   /study-targets:
-    get:
-      tags:
-        - StudyTargets
-      summary: タスク一覧の取得
-      responses:
-        '200':
-          description: 正常に取得
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas'
     post:
       tags:
         - StudyTargets
@@ -328,7 +295,7 @@ paths:
               schema:
                 $ref: '#/components/schemas'
   /books:
-    document/OpenAPI/paths/tasks.yamldocument/OpenAPI/paths/tasks.yamlget:
+    get:
       tags:
         - Books
       summary: タスク一覧の取得
@@ -351,7 +318,7 @@ paths:
               schema:
                 $ref: '#/components/schemas'
   '/books/:bookId':
-    document/OpenAPI/paths/tasks.yamldocument/OpenAPI/paths/tasks.yamlget:
+    put:
       tags:
         - Books
       summary: タスク一覧の取得
@@ -362,7 +329,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas'
-    post:
+    delete:
       tags:
         - Books
       summary: タスク一覧の取得
@@ -374,18 +341,7 @@ paths:
               schema:
                 $ref: '#/components/schemas'
   /me:
-    document/OpenAPI/paths/tasks.yamldocument/OpenAPI/paths/tasks.yamlget:
-      tags:
-        - Me
-      summary: タスク一覧の取得
-      responses:
-        '200':
-          description: 正常に取得
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas'
-    post:
+    get:
       tags:
         - Me
       summary: タスク一覧の取得

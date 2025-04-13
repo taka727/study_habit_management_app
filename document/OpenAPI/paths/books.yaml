@@ -1,4 +1,4 @@
-document/OpenAPI/paths/tasks.yamldocument/OpenAPI/paths/tasks.yamlget:
+get:
   tags : 
    - Books
   summary: タスク一覧の取得

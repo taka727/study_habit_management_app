@@ -1,4 +1,4 @@
-get:
+put:
   tags : 
    - Goals
   summary: タスク一覧の取得
@@ -9,7 +9,7 @@ get:
         application/json:
           schema:
             $ref: '../components/schemas/Task.yaml'
-post:
+delete:
   tags : 
    - Goals
   summary: タスク一覧の取得
