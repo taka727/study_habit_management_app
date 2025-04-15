@@ -16,7 +16,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     post:
       tags:
         - Users
@@ -27,7 +34,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     put:
       tags:
         - Users
@@ -38,7 +52,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     delete:
       tags:
         - Users
@@ -49,7 +70,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
   /tasks:
     get:
       tags:
@@ -61,7 +89,39 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: array
+                items:
+                  type: object
+                  properties:
+                    task_id:
+                      type: integer
+                    task_title:
+                      type: string
+                    status:
+                      type: integer
+              example:
+                - task_id: 1
+                  task_title: 掃除
+                  status: 1
+                - task_id: 2
+                  task_title: 勉強
+                  status: 2
+        '400':
+          description: エラーレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    example: VALIDATION_FAILED
+                  message:
+                    type: string
+                    example: 入力値に不備があります
+                required:
+                  - code
+                  - message
     post:
       tags:
         - Tasks
@@ -72,8 +132,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
-  '/tasks/:taskId':
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
+              example:
+                task_id: 1
+                task_title: 掃除
+                status: 1
+  '/tasks/{taskId}':
     get:
       tags:
         - Tasks
@@ -84,7 +155,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     put:
       tags:
         - Tasks
@@ -95,7 +173,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     delete:
       tags:
         - Tasks
@@ -106,8 +191,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
-  '/tasks/:taskId/subtasks':
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
+  '/tasks/{taskId}/subtasks':
     get:
       tags:
         - SubTasks
@@ -118,7 +210,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     post:
       tags:
         - SubTasks
@@ -129,7 +228,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
   '/subtasks/:subtaskId':
     put:
       tags:
@@ -141,7 +247,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     delete:
       tags:
         - SubTasks
@@ -152,7 +265,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
   /task-statuses:
     get:
       tags:
@@ -164,7 +284,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
   /task-records:
     post:
       tags:
@@ -176,7 +303,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
   /task-records?date=2025-04-12:
     get:
       tags:
@@ -188,8 +322,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
-  '/tasks/:taskId/records':
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
+  '/tasks/{taskId}/records':
     get:
       tags:
         - TaskRecords
@@ -200,7 +341,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
   /goals:
     get:
       tags:
@@ -212,7 +360,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     post:
       tags:
         - Goals
@@ -223,8 +378,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
-  '/goals/:goalId':
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
+  '/goals/{goalId}':
     put:
       tags:
         - Goals
@@ -235,7 +397,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     delete:
       tags:
         - Goals
@@ -246,8 +415,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
-  '/goals/:goalId/achievements':
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
+  '/goals/{goalId}/achievements':
     get:
       tags:
         - Goals
@@ -258,7 +434,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     post:
       tags:
         - Goals
@@ -269,7 +452,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
   /study-targets?date=2025-04-12:
     get:
       tags:
@@ -281,7 +471,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
   /study-targets:
     post:
       tags:
@@ -293,7 +490,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
   /books:
     get:
       tags:
@@ -305,7 +509,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     post:
       tags:
         - Books
@@ -316,8 +527,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
-  '/books/:bookId':
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
+  '/books/bookId}':
     put:
       tags:
         - Books
@@ -328,7 +546,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
     delete:
       tags:
         - Books
@@ -339,7 +564,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
   /me:
     get:
       tags:
@@ -351,18 +583,143 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas'
+                type: object
+                properties:
+                  task_id:
+                    type: integer
+                  task_title:
+                    type: string
+                  status:
+                    type: integer
 components:
-  schemas:
-    Task:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        status:
-          type: string
+  responses:
+    ValidationError:
+      description: 入力バリデーション不備
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            validation:
+              summary: バリデーション失敗
+              value:
+                code: VALIDATION_FAILED
+                message: 入力値が正しくありません
+    UnauthorizedError:
+      description: 認証されていません
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            unauthorized:
+              value:
+                code: UNAUTHORIZED
+                message: ログインが必要です
+    ForbiddenError:
+      description: 権限がありません
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            forbidden:
+              value:
+                code: FORBIDDEN
+                message: この操作を行う権限がありません
+    NotFoundError:
+      description: 対象リソースが存在しません
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            notFound:
+              value:
+                code: NOT_FOUND
+                message: 指定されたリソースは見つかりませんでした
+    ConflictError:
+      description: データの競合
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            conflict:
+              value:
+                code: CONFLICT
+                message: 同じ名前のユーザが既に存在します
+    InternalServerError:
+      description: サーバ内部エラー
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            serverError:
+              value:
+                code: INTERNAL_SERVER_ERROR
+                message: サーバで予期しないエラーが発生しました
 tags:
   - name: Tasks
     description: タスクを操作するAPI

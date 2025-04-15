@@ -8,7 +8,14 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/Task.yaml'
+            type: object
+            properties:
+              task_id:
+                type: integer
+              task_title:
+                type: string
+              status:
+                type: integer
 post:
   tags : 
    - Goals
@@ -19,4 +26,11 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/Task.yaml'
+            type: object
+            properties:
+              task_id:
+                type: integer
+              task_title:
+                type: string
+              status:
+                type: integer

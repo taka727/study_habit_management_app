@@ -8,7 +8,39 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/Task.yaml'
+            type: array
+            items:
+              type: object
+              properties:
+                task_id:
+                  type: integer
+                task_title:
+                  type: string
+                status:
+                  type: integer
+          example:
+            - task_id: 1
+              task_title: "掃除"
+              status: 1
+            - task_id: 2
+              task_title: "勉強"
+              status: 2
+    '400' :
+      description: エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
 post:
   tags : 
    - Tasks
@@ -19,4 +51,15 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/Task.yaml'
+            type: object
+            properties:
+              task_id:
+                type: integer
+              task_title:
+                type: string
+              status:
+                type: integer
+          example:
+            task_id: 1
+            task_title: "掃除"
+            status: 1

@@ -8,7 +8,14 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/Task.yaml'
+            type: object
+            properties:
+              task_id:
+                type: integer
+              task_title:
+                type: string
+              status:
+                type: integer
 put:
   tags : 
    - Tasks
@@ -19,7 +26,14 @@ put:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/Task.yaml'
+            type: object
+            properties:
+              task_id:
+                type: integer
+              task_title:
+                type: string
+              status:
+                type: integer
 delete:
   tags : 
    - Tasks
@@ -30,4 +44,11 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/Task.yaml'
+            type: object
+            properties:
+              task_id:
+                type: integer
+              task_title:
+                type: string
+              status:
+                type: integer

@@ -11,9 +11,9 @@ paths:
     $ref: './paths/users.yaml'
   /tasks:
     $ref: './paths/tasks.yaml'
-  /tasks/:taskId:
+  /tasks/{taskId}:
     $ref: './paths/tasksId.yaml'
-  /tasks/:taskId/subtasks:
+  /tasks/{taskId}/subtasks:
     $ref: './paths/subTask.yaml'
   /subtasks/:subtaskId:
     $ref: './paths/subTaskId.yaml'
@@ -23,13 +23,13 @@ paths:
     $ref: './paths/tasksRecords.yaml'
   /task-records?date=2025-04-12:
     $ref: './paths/tasksRecordDate.yaml'
-  /tasks/:taskId/records:
+  /tasks/{taskId}/records:
     $ref: './paths/tasksIdRecords.yaml'
   /goals:
     $ref: './paths/goals.yaml'
-  /goals/:goalId:
+  /goals/{goalId}:
     $ref: './paths/goalsId.yaml'
-  /goals/:goalId/achievements:
+  /goals/{goalId}/achievements:
     $ref: './paths/goalsIdAchievements.yaml'
   /study-targets?date=2025-04-12:
     $ref: './paths/studyTargetsDate.yaml'
@@ -37,14 +37,141 @@ paths:
     $ref: './paths/studyTargets.yaml'
   /books:
     $ref: './paths/books.yaml'
-  /books/:bookId:
+  /books/bookId}:
     $ref: './paths/booksID.yaml'
   /me :
     $ref: './paths/me.yaml'
-
+    
 components:
-  schemas:
-      $ref: './components/schemas/Task.yaml'
+  responses:
+    ValidationError:
+      description: 入力バリデーション不備
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            validation:
+              summary: バリデーション失敗
+              value:
+                code: VALIDATION_FAILED
+                message: 入力値が正しくありません
+    UnauthorizedError:
+      description: 認証されていません
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            unauthorized:
+              value:
+                code: UNAUTHORIZED
+                message: ログインが必要です
+    ForbiddenError:
+      description: 権限がありません
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            forbidden:
+              value:
+                code: FORBIDDEN
+                message: この操作を行う権限がありません
+    NotFoundError:
+      description: 対象リソースが存在しません
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            notFound:
+              value:
+                code: NOT_FOUND
+                message: 指定されたリソースは見つかりませんでした
+    ConflictError:
+      description: データの競合
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            conflict:
+              value:
+                code: CONFLICT
+                message: 同じ名前のユーザが既に存在します
+    InternalServerError:
+      description: サーバ内部エラー
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: VALIDATION_FAILED
+              message:
+                type: string
+                example: 入力値に不備があります
+            required:
+              - code
+              - message
+          examples:
+            serverError:
+              value:
+                code: INTERNAL_SERVER_ERROR
+                message: サーバで予期しないエラーが発生しました
+    
 
 tags:
   - name: Tasks
