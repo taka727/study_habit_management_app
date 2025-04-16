@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+
+new Vue({
+  el: '#app',
+  data () {
+    return {
+      info: null
+    }
+  },
+  mounted () {
+    axios
+      .get('http://localhost:3000')
+      .then(response => (this.info = response))
+  }
+})
 </script>
 
 <template>
