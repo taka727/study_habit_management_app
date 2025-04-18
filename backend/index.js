@@ -4,6 +4,7 @@ const mysql = require('mysql2');
 
 const app = express();
 const port = 3000;
+const prisma = require('./prismaClient');
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -27,4 +28,10 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
+});
+
+app.get('/users', async (req, res) => {
+    console.log('get users start');
+    const users = await prisma.user.findMany();
+    res.json({ status: 'success', data: users });
 });

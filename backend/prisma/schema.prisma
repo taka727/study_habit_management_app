@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  username  String
+  user_question_id String
+  user_answer String
+  created_at DateTime @default(now())
+  updated_at DateTime
+  is_deleted Boolean
+}
+
+model SecurityQuestion {
+  id Int @id @default(autoincrement())
+  content String
+}
+
+model Task {
+  id                Int       @id @default(autoincrement())
+  user_id           Int
+  task_status_id    Int
+  task_title        String
+  task_description  String
+  task_start_time   DateTime
+  task_end_time     DateTime
+  created_at        DateTime  @default(now())
+  updated_at        DateTime
+}
+
+model Status {
+  id   Int     @id @default(autoincrement())
+  status_name String 
+}
+
+model SubTask {
+  id                Int       @id @default(autoincrement())
+  parent_task_id    Int
+  title             String
+  created_at        DateTime  @default(now())
+  updated_at        DateTime
+}
+
+model goal {
+  id                Int       @id @default(autoincrement())
+  user_id           Int
+  title             String
+  description       String
+  gaol_start_date   DateTime
+  goal_end_date     DateTime
+  created_at        DateTime
+  updated_at        DateTime
+
+}
+
